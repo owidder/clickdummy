@@ -1,0 +1,18 @@
+@import "../../variables.scss";
+
+.nav-bar {
+    background-color: $bmw-gray;
+    height: $navbar-height;
+}
+
+.left-nav-column {
+    height: $navbar-height;
+
+    div {
+        height: $navbar-height;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        align-items: center;
+    }
+}
