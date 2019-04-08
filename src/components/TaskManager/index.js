@@ -5,6 +5,7 @@ export class TaskManager extends React.Component {
   render() {
     return (
       <>
+        <h1>Tasks</h1>
         <TaskContainer
           description="Unresolved checksums"
           count={this.props.unresolved}
