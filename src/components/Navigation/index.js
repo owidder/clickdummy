@@ -10,7 +10,8 @@ const menuButton = {
 };
 
 const logoContainer = {
-  marginTop: "8px"
+  marginTop: "8px",
+  display: "inline",
 };
 
 export const Navigation = props => (
@@ -26,10 +27,9 @@ export const Navigation = props => (
       </div>
       </Col>
       <Col span={15} />
-      <Col span={3} style={logoContainer}>
+      <Col span={6} style={logoContainer}>
         <img src={logo} alt="bmw-logo"/>
       </Col>
-      <Col span={3} />
     </Row>
   </div>
 );

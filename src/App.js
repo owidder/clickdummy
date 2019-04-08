@@ -1,21 +1,14 @@
 import React, { Component } from "react";
-import { Icon, Drawer, Badge, Row, Col } from "antd";
-
+import { Row, Col } from "antd";
 import "./App.scss";
 
 import { Navigation } from "./components/Navigation";
 import { TaskManager } from "./components/TaskManager";
 import { ReportManager } from "./components/ReportManager";
+import { DrawMenu } from "./components/DrawMenu";
 
-const NAVBAR_HEIGHT = "50px";
-
-const TASK_MANAGER = "task-manager";
-const REPORT_MANAGER = "report-manager";
-
-const drawer = {
-  marginTop: NAVBAR_HEIGHT,
-  width: "240px"
-};
+export const TASK_MANAGER = "task-manager";
+export const REPORT_MANAGER = "report-manager";
 
 class App extends Component {
   state = {
@@ -34,37 +27,18 @@ class App extends Component {
   };
 
   renderDrawer = () => (
-    <Drawer
-      style={drawer}
-      visible={this.state.menuVisible}
-      placement="left"
-      onClose={() => this.handleClick(this.state.activePage)}
-      mask={false}
-      closable={false}
-      width="12.6%"
-    >
-      <p
-        className={`menu-item ${this.state.activePage === TASK_MANAGER ? "active" : ""} clickable`}
-        onClick={() => this.handleNavClick(TASK_MANAGER)}
-      >
-        <Icon className="menu-icon" type="ordered-list" />{" "}
-        <Badge dot>
-          <span>Tasks</span>
-        </Badge>
-      </p>
-      <p
-        className={`menu-item ${this.state.activePage === REPORT_MANAGER ? "active" : ""} clickable`}
-        onClick={() => this.handleNavClick(REPORT_MANAGER)}
-      >
-        <Icon className="menu-icon" type="clock-circle" /> Reports
-      </p>
-    </Drawer>
+    <DrawMenu
+      menuVisible={this.state.menuVisible}
+      activePage={this.state.activePage}
+      handleClick={() => this.handleClick(this.state.activePage)}
+      handleNavClick={componentKey => this.handleNavClick(componentKey)}
+    />
   );
 
   renderPageContent = componentKey => {
     switch (componentKey) {
       case TASK_MANAGER:
-        return <TaskManager />;
+        return <TaskManager unresolved={42} resolved={13} />;
       case REPORT_MANAGER:
         return <ReportManager />;
       default:
@@ -81,20 +55,21 @@ class App extends Component {
           <Navigation
             menuVisible={this.state.menuVisible}
             handleClick={() => this.handleClick()}
-            height={NAVBAR_HEIGHT}
           />
         </Row>
 
-        {this.state.menuVisible ? (
-          <Row>
-            <Col span={3} id="drawer-col">
-              {this.renderDrawer()}
-            </Col>
-            <Col span={21}>{currentPage}</Col>
-          </Row>
-        ) : (
-          <Col span={24}>{currentPage}</Col>
-        )}
+        <Row className="app-content">
+          {this.state.menuVisible ? (
+            <>
+              <Col span={3} id="drawer-col">
+                {this.renderDrawer()}
+              </Col>
+              <Col span={21}>{currentPage}</Col>
+            </>
+          ) : (
+            <Col span={24}>{currentPage}</Col>
+          )}
+        </Row>
       </div>
     );
   }
