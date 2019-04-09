@@ -5,15 +5,13 @@ import { ReportCreator } from "../ReportCreator";
 const TabPane = Tabs.TabPane;
 
 const ATTRIBUTES = [
-  'a1',
-  'b2',
-  'c3',
-  'd4',
-  'e5',
-  'f6',
-  'g7',
-  'h8',
-  'i9',
+  {id: 0, description: 'a1'},
+  {id: 1, description: 'b2'},
+  {id: 2, description: 'c3'},
+  {id: 3, description: 'd4'},
+  {id: 4, description: 'e5'},
+  {id: 5, description: 'f6'},
+  {id: 6, description: 'g7'},
 ]
 
 export class ReportManager extends React.Component {
