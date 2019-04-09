@@ -2,18 +2,16 @@ import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import Attribute from "./Attribute";
 
-
-
 export class AttributeSource extends React.Component {
   render() {
     return (
       <Droppable droppableId="attributes-source" direction="horizontal">
         {provided => (
           <div ref={provided.innerRef}>
-            {this.props.attributes.map((attr, index) => (
+            {this.props.attributes.map((item, index) => (
               <Draggable
-                key={attr.id}
-                draggableId={`source-${attr.id}`}
+                key={item.id}
+                draggableId={`source-${item.id}`}
                 index={index}
               >
                 {provided => (
@@ -22,7 +20,7 @@ export class AttributeSource extends React.Component {
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                   >
-                    <Attribute description={attr.description} />
+                    <Attribute description={item.description} />
                   </span>
                 )}
               </Draggable>

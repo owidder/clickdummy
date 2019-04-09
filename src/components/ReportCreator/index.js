@@ -6,7 +6,10 @@ import { AttributeSource } from "./AttributeSource";
 
 export class ReportCreator extends React.Component {
   state = {
-    selectedAttributes: [{ id: 7, description: "h8" }],
+    selectedAttributes: [
+      { id: 7, description: "h8" },
+      { id: 8, description: "i9" }
+  ],
     availableAttributes: this.props.attributes
   };
 
