@@ -27,14 +27,6 @@ export class ReportCreator extends React.Component {
     this.state = getInitialState();
   }
 
-  onDragStart = () => {
-    /*...*/
-  };
-  onDragUpdate = () => {
-    /*...*/
-  };
-
-  // TODO: make table cells switchable!
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
 

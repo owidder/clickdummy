@@ -1,21 +1,23 @@
 @import "../../variables.scss";
 
 .drawer {
-    margin-top: $navbar-height;
-    width: 240px;
+  margin-top: $navbar-height;
+  width: 240px;
 }
 
 .menu-item {
-    padding: 5px;
-    margin: 0;
-    color: black;
-  
-    &.active {
-      color: $bmw-blue;
-      background-color: lightgray;
-    }
+  height: 38px;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin: 0;
+  color: black;
+
+  &.active {
+    color: $bmw-blue;
+    background-color: lightgray;
   }
-  
-  .menu-icon {
-    margin-right: 3%;
-  }
+}
+
+.menu-icon {
+  margin-right: 3%;
+}

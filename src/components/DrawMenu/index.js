@@ -21,7 +21,7 @@ export const DrawMenu = props => {
         onClick={() => props.handleNavClick(TASK_MANAGER)}
       >
         <Icon className="menu-icon" type="ordered-list" />{" "}
-        <Badge dot>
+        <Badge count={42} offset={[17,2]}>
           <span>Tasks</span>
         </Badge>
       </p>
