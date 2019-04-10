@@ -1,17 +1,29 @@
 import React from "react";
-import { Input, Button } from "antd";
+import { Input, Button, Divider } from "antd";
 import { DragDropContext } from "react-beautiful-dnd";
 import { SelectedAttributes } from "./SelectedAttributes";
 import { AttributeSource } from "./AttributeSource";
 
-export class ReportCreator extends React.Component {
-  state = {
-    selectedAttributes: [
-      { id: 7, description: "h8" },
-      { id: 8, description: "i9" }
-  ],
-    availableAttributes: this.props.attributes
+const getInitialState = () => {
+  return {
+    selectedAttributes: [],
+    availableAttributes: [
+      { id: 0, description: "a1" },
+      { id: 1, description: "b2" },
+      { id: 2, description: "c3" },
+      { id: 3, description: "d4" },
+      { id: 4, description: "e5" },
+      { id: 5, description: "f6" },
+      { id: 6, description: "g7" }
+    ]
   };
+};
+
+export class ReportCreator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = getInitialState();
+  }
 
   onDragStart = () => {
     /*...*/
@@ -20,6 +32,7 @@ export class ReportCreator extends React.Component {
     /*...*/
   };
 
+  // TODO: make table cells switchable!
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
 
@@ -70,7 +83,6 @@ export class ReportCreator extends React.Component {
         <p>
           <Input placeholder="Report title" style={{ width: "200px" }} />
         </p>
-        <div>Selected attributes:</div>
         <SelectedAttributes attributes={this.state.selectedAttributes} />
         <div>
           <Button
@@ -79,12 +91,22 @@ export class ReportCreator extends React.Component {
           >
             Save Report
           </Button>
-          <Button type="secondary">Reset Form</Button>
+          <Button
+            type="secondary"
+            onClick={() => {
+              this.setState(getInitialState());
+            }}
+          >
+            Reset Form
+          </Button>
+        </div>
+        <div style={{ width: "350px" }}>
+          <Divider />
         </div>
         <div className="attribute-area">
           Available attributes:
           <div>
-            <AttributeSource attributes={this.props.attributes} />
+            <AttributeSource attributes={this.state.availableAttributes} />
           </div>
         </div>
       </DragDropContext>

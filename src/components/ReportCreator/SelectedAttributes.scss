@@ -1,9 +1,15 @@
 .selection-area {
-    max-width: 650px;
-    margin-bottom: 20px;
-    border: 1px dotted black;
+    // min-width: 130px;
+    // max-width: 1000px;
+    width: 80%;
+    min-height: 100px;
+    padding: 5px;
+
+    &.empty {
+        background-color: #F5F5F5;
+        border: 1px dotted black;
+    }
 }
 
 .attribute-area {
-    margin-top: 40px;
 }
