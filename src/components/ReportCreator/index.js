@@ -4,6 +4,8 @@ import { DragDropContext } from "react-beautiful-dnd";
 import { SelectedAttributes } from "./SelectedAttributes";
 import { AttributeSource } from "./AttributeSource";
 
+import "./ReportCreator.scss"
+
 const getInitialState = () => {
   return {
     selectedAttributes: [],
@@ -84,7 +86,13 @@ export class ReportCreator extends React.Component {
           <Input placeholder="Report title" style={{ width: "200px" }} />
         </p>
         <SelectedAttributes attributes={this.state.selectedAttributes} />
-        <div>
+        <div className="attribute-area">
+          Available attributes:
+          <div>
+            <AttributeSource attributes={this.state.availableAttributes} />
+          </div>
+        </div>
+        <div style={{marginTop: "10px"}}>
           <Button
             type="primary"
             style={{ marginRight: "10px", marginTop: "10px" }}
@@ -99,15 +107,6 @@ export class ReportCreator extends React.Component {
           >
             Reset Form
           </Button>
-        </div>
-        <div style={{ width: "350px" }}>
-          <Divider />
-        </div>
-        <div className="attribute-area">
-          Available attributes:
-          <div>
-            <AttributeSource attributes={this.state.availableAttributes} />
-          </div>
         </div>
       </DragDropContext>
     );
