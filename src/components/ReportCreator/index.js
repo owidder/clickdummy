@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Button, Divider } from "antd";
+import { Input, Button } from "antd";
 import { DragDropContext } from "react-beautiful-dnd";
 import { SelectedAttributes } from "./SelectedAttributes";
 import { AttributeSource } from "./AttributeSource";
@@ -28,7 +28,7 @@ export class ReportCreator extends React.Component {
   }
 
   onDragEnd = result => {
-    const { destination, source, draggableId } = result;
+    const { destination, source } = result;
 
     if (!destination) {
       return;

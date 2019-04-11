@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, Drawer, Badge } from "antd";
+import { Icon, Drawer, Badge, Tooltip } from "antd";
 import { TASK_MANAGER, REPORT_MANAGER } from "../../App.js";
 import "./DrawMenu.scss";
 
@@ -14,25 +14,27 @@ export const DrawMenu = props => {
       closable={false}
       width="12.6%"
     >
-      <p
+      <div
         className={`menu-item ${
           props.activePage === TASK_MANAGER ? "active" : ""
         } clickable`}
         onClick={() => props.handleNavClick(TASK_MANAGER)}
       >
         <Icon className="menu-icon" type="ordered-list" />{" "}
-        <Badge count={42} offset={[17,2]}>
-          <span>Tasks</span>
-        </Badge>
-      </p>
-      <p
+        <Tooltip title="Number of unassigned tasks">
+          <Badge count={props.openTasks} offset={[17, 2]}>
+            <span>Tasks</span>
+          </Badge>
+        </Tooltip>
+      </div>
+      <div
         className={`menu-item ${
           props.activePage === REPORT_MANAGER ? "active" : ""
         } clickable`}
         onClick={() => props.handleNavClick(REPORT_MANAGER)}
       >
         <Icon className="menu-icon" type="clock-circle" /> Reports
-      </p>
+      </div>
     </Drawer>
   );
 };

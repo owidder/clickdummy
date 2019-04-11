@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { Row, Col } from "antd";
-import "./App.scss";
 
 import { Navigation } from "./components/Navigation";
 import { TaskManager } from "./components/TaskManager";
 import { ReportManager } from "./components/ReportManager";
 import { DrawMenu } from "./components/DrawMenu";
+
+import "./App.scss";
+
+import { unresolvedChecksums } from "./sample_data/sample_data";
 
 export const TASK_MANAGER = "task-manager";
 export const REPORT_MANAGER = "report-manager";
@@ -13,7 +16,9 @@ export const REPORT_MANAGER = "report-manager";
 class App extends Component {
   state = {
     menuVisible: true,
-    activePage: REPORT_MANAGER
+    activePage: TASK_MANAGER,
+    claimedTasks: [],
+    unresolvedChecksums: unresolvedChecksums
   };
 
   handleClick = () => {
@@ -26,23 +31,68 @@ class App extends Component {
     this.setState({ activePage: componentKey });
   };
 
+  handleClaim = taskId => {
+    const task = this.state.unresolvedChecksums.filter(
+      task => task.id === taskId
+    )[0];
+    task.claimed = true;
+
+    const claimedTasks = this.state.claimedTasks;
+    claimedTasks.push(task);
+
+    const newUnresolved = this.state.unresolvedChecksums.filter(
+      task => task.id != taskId
+    );
+
+    this.setState({ claimedTasks, unresolvedChecksums: newUnresolved });
+  };
+
+  handleUnclaim = taskId => {
+    const task = this.state.claimedTasks.filter(task => task.id === taskId)[0];
+    task.claimed = false;
+
+    const unresolvedChecksums = this.state.unresolvedChecksums;
+    unresolvedChecksums.push(task);
+
+    const newClaimed = this.state.claimedTasks.filter(
+      task => task.id != taskId
+    );
+
+    this.setState({ unresolvedChecksums, claimedTasks: newClaimed });
+  };
+
   renderDrawer = () => (
     <DrawMenu
       menuVisible={this.state.menuVisible}
       activePage={this.state.activePage}
       handleClick={() => this.handleClick(this.state.activePage)}
       handleNavClick={componentKey => this.handleNavClick(componentKey)}
+      openTasks={this.state.unresolvedChecksums.length}
     />
   );
 
   renderPageContent = componentKey => {
     switch (componentKey) {
       case TASK_MANAGER:
-        return <TaskManager unresolved={42} resolved={13} />;
+        return (
+          <TaskManager
+            claimed={this.state.claimedTasks}
+            unresolvedChecksums={this.state.unresolvedChecksums}
+            onClaim={taskId => this.handleClaim(taskId)}
+            onUnclaim={taskId => this.handleUnclaim(taskId)}
+          />
+        );
       case REPORT_MANAGER:
         return <ReportManager />;
       default:
-        return <TaskManager />;
+        return (
+          <TaskManager
+            claimed={this.state.claimedTasks}
+            unresolvedChecksums={this.state.unresolvedChecksums}
+            onClaim={taskId => this.handleClaim(taskId)}
+            onUnclaim={taskId => this.handleUnclaim(taskId)}
+          />
+        );
     }
   };
 

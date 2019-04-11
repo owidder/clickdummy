@@ -14,7 +14,7 @@ export class ReportManager extends React.Component {
             <ReportCreator />
           </TabPane>
           <TabPane tab="Saved Reports" key="2">
-            There are no saved reports yet.
+            <p>There are no saved reports yet.</p>
           </TabPane>
         </Tabs>
       </div>
