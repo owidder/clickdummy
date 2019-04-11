@@ -41,7 +41,7 @@ class App extends Component {
     claimedTasks.push(task);
 
     const newUnresolved = this.state.unresolvedChecksums.filter(
-      task => task.id != taskId
+      task => task.id !== taskId
     );
 
     this.setState({ claimedTasks, unresolvedChecksums: newUnresolved });
@@ -55,7 +55,7 @@ class App extends Component {
     unresolvedChecksums.push(task);
 
     const newClaimed = this.state.claimedTasks.filter(
-      task => task.id != taskId
+      task => task.id !== taskId
     );
 
     this.setState({ unresolvedChecksums, claimedTasks: newClaimed });
