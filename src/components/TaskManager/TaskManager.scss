@@ -37,6 +37,12 @@
     &.empty {
         border-right: 1px solid #D2D2D2;
     }
+
+    &.active {
+        background-color: whitesmoke;
+        border-left: 5px solid $bmw-gray;
+        margin-left: -5px;
+    }
 }
 
 .task {

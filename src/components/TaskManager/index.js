@@ -8,6 +8,7 @@ import "./TaskManager.scss";
 
 const CLAIMED = "claimed";
 const UNRESOLVED_CS = "unresolved_checksums";
+const OTHER_TASKS = "other_tasks";
 
 export class TaskManager extends React.Component {
   state = {
@@ -20,6 +21,8 @@ export class TaskManager extends React.Component {
         return this.props.claimed;
       case UNRESOLVED_CS:
         return this.props.unresolvedChecksums;
+      case OTHER_TASKS:
+        return [];
       default:
         return this.props.claimed;
     }
@@ -39,23 +42,39 @@ export class TaskManager extends React.Component {
         <h1>Tasks</h1>
         <Row>
           <Col span={5}>
-            <div className={`task-container ${this.getCurrentTaskList().length > 0 ? "" : "no-tasks"}`}>
+            <div
+              className={`task-container ${
+                this.getCurrentTaskList().length > 0 ? "" : "no-tasks"
+              }`}
+            >
               <TaskCategory
                 description="My Tasks"
                 tasks={this.props.claimed}
                 onClick={() => this.onCategoryClick(CLAIMED)}
+                active={this.state.selectedTasks === CLAIMED}
               />
               <TaskCategory
                 description="Unresolved checksums"
                 tasks={this.props.unresolvedChecksums}
                 onClick={() => this.onCategoryClick(UNRESOLVED_CS)}
+                active={this.state.selectedTasks === UNRESOLVED_CS}
+              />
+              <TaskCategory
+                description="Other tasks"
+                tasks={[]}
+                onClick={() => this.onCategoryClick(OTHER_TASKS)}
+                active={this.state.selectedTasks === OTHER_TASKS}
               />
             </div>
           </Col>
           {this.tasksAvailable() ? (
             <Col span={8}>
               <div className="task-container right">
-                <TaskList selectedTasks={this.getCurrentTaskList()} onClaim={this.props.onClaim} onUnclaim={this.props.onUnclaim}/>
+                <TaskList
+                  selectedTasks={this.getCurrentTaskList()}
+                  onClaim={this.props.onClaim}
+                  onUnclaim={this.props.onUnclaim}
+                />
               </div>
             </Col>
           ) : (
