@@ -1,12 +1,14 @@
 @import "../../variables.scss";
 
 .task-container {
-    border-left: 1px solid $bmw-gray;
+    // border-left: 1px solid $bmw-gray;
     border-top: 1px solid $bmw-gray;
+    border-right: 1px solid $bmw-gray;
 
-    &.right {
-        border-right: 1px solid #D2D2D2;
-    }
+
+    // &.right {
+    //     border-right: 1px solid #D2D2D2;
+    // }
 
     &.no-tasks {
         border-right: 1px solid $bmw-gray;
@@ -22,6 +24,9 @@
     border-bottom: 1px solid $bmw-gray;
     cursor: pointer;
     padding-top: 5px;
+    // border-right: 1px solid $bmw-gray;
+    border-left: 1px solid $bmw-gray;
+
 
     .description {
         color: white;
@@ -35,13 +40,14 @@
     }
 
     &.empty {
-        border-right: 1px solid #D2D2D2;
+        // border-right: 1px solid #D2D2D2;
+        margin-left: -1px;
     }
 
     &.active {
         background-color: whitesmoke;
-        border-left: 5px solid $bmw-gray;
-        margin-left: -5px;
+        // border-left: 5px solid $bmw-gray;
+        // margin-left: -5px;
     }
 }
 
@@ -51,4 +57,7 @@
     padding-bottom: 5px;
     background-color: #EAF8FF;
     border-bottom: 1px solid $bmw-gray;
+    // border-right: 1px solid $bmw-gray;
+    border-left: 1px solid $bmw-gray;
+    margin-left: -1px;
 }

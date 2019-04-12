@@ -20,7 +20,7 @@ export class AttributeSource extends React.Component {
     return (
       <Droppable droppableId="attributes-source" direction="horizontal">
         {provided => (
-          <div ref={provided.innerRef} style={{ maxWidth: "750px" }}>
+          <div ref={provided.innerRef} style={{ maxWidth: "750px", marginLeft: "10px" }}>
             {this.props.attributes.map((attributeCollection, groupId) => (
               <div key={groupId} style={{paddingTop:"6px"}}>
                 <div key={groupId}>{attributeCollection.description}:</div>
