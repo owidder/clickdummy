@@ -1,12 +1,11 @@
 .selection-area {
-    // min-width: 130px;
-    // max-width: 1000px;
-    width: 80%;
-    min-height: 100px;
+    width: 77%;
+    min-height: 116px;
     padding: 5px;
+    overflow-x: auto;
 
     &.empty {
-        background-color: #F5F5F5;
+        background-color: white;
         border: 1px dotted black;
     }
 }

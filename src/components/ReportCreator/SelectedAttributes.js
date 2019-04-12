@@ -4,7 +4,7 @@ import { Table, Tag } from "antd";
 
 import "./SelectedAttributes.scss";
 
-const DEFAULT_CELL_WIDTH = 130;
+const DEFAULT_CELL_WIDTH = 180;
 const EMPTY_QUERY_CELL_WIDTH = 350;
 
 export class SelectedAttributes extends React.Component {
@@ -15,15 +15,14 @@ export class SelectedAttributes extends React.Component {
 
   createColumns = () => {
     let currentColumns = [];
-
-    this.props.attributes.forEach((item, index) =>
+    this.props.attributes.forEach(item =>
       currentColumns.push({
         title: (
           <div>
             <Draggable
               key={item.id}
               draggableId={`target-${item.id}`}
-              index={index}
+              index={item.id}
             >
               {provided => (
                 <span
@@ -31,7 +30,7 @@ export class SelectedAttributes extends React.Component {
                   {...provided.dragHandleProps}
                   ref={provided.innerRef}
                 >
-                  <Tag color="#108ee9">{item.description}</Tag>
+                  <Tag color="blue" style={{marginLeft: "20px"}}>{item.description}</Tag>
                 </span>
               )}
             </Draggable>
@@ -81,25 +80,30 @@ export class SelectedAttributes extends React.Component {
     return (
       <>
         Report query:
-        <Droppable droppableId="attributes-target" direction="horizontal">
+        <Droppable
+          droppableId="attributes-target"
+          direction="horizontal"
+          style={{ backgroundColor: "yellow", overflowX: "auto" }}
+        >
           {provided => (
-            <div
-              id="attributes-target"
-              className={`selection-area ${listIsEmpty ? "empty" : ""}`}
-              style={{ width: tableWidth }}
-              ref={provided.innerRef}
-            >
-              {provided.placeholder}
-              {this.props.attributes.length > 0 ? (
-                <Table
-                  bordered
-                  dataSource={this.state.data}
-                  columns={this.state.columns}
-                  pagination={false}
-                />
-              ) : (
-                <span>Add at least one attribute to create a new query!</span>
-              )}
+            <div className="selection-area empty">
+              <div
+                id="attributes-target"
+                style={{ width: tableWidth }}
+                ref={provided.innerRef}
+              >
+                {provided.placeholder}
+                {this.props.attributes.length > 0 ? (
+                  <Table
+                    bordered
+                    dataSource={this.state.data}
+                    columns={this.state.columns}
+                    pagination={false}
+                  />
+                ) : (
+                  <span>Add at least one attribute to create a new query!</span>
+                )}
+              </div>
             </div>
           )}
         </Droppable>

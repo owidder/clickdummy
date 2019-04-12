@@ -16,7 +16,7 @@ export const REPORT_MANAGER = "report-manager";
 class App extends Component {
   state = {
     menuVisible: true,
-    activePage: TASK_MANAGER,
+    activePage: REPORT_MANAGER,
     claimedTasks: [],
     unresolvedChecksums: unresolvedChecksums
   };
