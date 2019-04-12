@@ -1,15 +1,6 @@
 @import "../../variables.scss";
 
 .task-container {
-    // border-left: 1px solid $bmw-gray;
-    border-top: 1px solid $bmw-gray;
-    border-right: 1px solid $bmw-gray;
-
-
-    // &.right {
-    //     border-right: 1px solid #D2D2D2;
-    // }
-
     &.no-tasks {
         border-right: 1px solid $bmw-gray;
     }
@@ -21,11 +12,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid $bmw-gray;
     cursor: pointer;
     padding-top: 5px;
     // border-right: 1px solid $bmw-gray;
-    border-left: 1px solid $bmw-gray;
+    margin: 5px;
 
 
     .description {
@@ -56,8 +46,6 @@
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: #EAF8FF;
-    border-bottom: 1px solid $bmw-gray;
     // border-right: 1px solid $bmw-gray;
-    border-left: 1px solid $bmw-gray;
-    margin-left: -1px;
+    margin: 5px;
 }
