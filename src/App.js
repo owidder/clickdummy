@@ -97,6 +97,7 @@ class App extends Component {
   };
 
   render() {
+    const {menuVisible} = this.state
     const currentPage = this.renderPageContent(this.state.activePage);
 
     return (
@@ -109,13 +110,13 @@ class App extends Component {
         </Row>
 
         <Row className="app-content">
-          {this.state.menuVisible ? (
-            <>
+          {menuVisible ? (
+            <div className="menu-visible">
               <Col span={3} id="drawer-col">
                 {this.renderDrawer()}
               </Col>
               <Col span={21}>{currentPage}</Col>
-            </>
+            </div>
           ) : (
             <Col span={24}>{currentPage}</Col>
           )}

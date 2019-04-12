@@ -1,6 +1,10 @@
 @import "./variables.scss";
 
 .app-content {
-  padding-left: 2%;
+  padding-left: 23px;
   top: -($navbar-height);
+
+  .menu-visible {
+    margin-left: 23px;
+  }
 }
