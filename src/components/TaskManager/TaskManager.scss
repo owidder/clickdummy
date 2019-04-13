@@ -15,6 +15,10 @@
     100% {background-color: $bmw-gray;color: white;}
 }
 
+@keyframes task-hide {
+    100% {opacity: 0;}
+}
+
 .task-category {
     background-color: #D2D2D2;
     display: flex;
@@ -54,6 +58,12 @@
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: #EAF8FF;
-    // border-right: 1px solid $bmw-gray;
     margin: 5px;
+    overflow-y: hidden;
+    height: 100%;
+
+    &.hide {
+        margin: 0;
+        padding: 0;
+    }
 }
