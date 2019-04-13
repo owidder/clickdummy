@@ -28,7 +28,6 @@ export const Navigation = props => (
       </Col>
       <Col span={15} />
       <Col span={6} style={logoContainer}>
-        <img src={logo} alt="bmw-logo"/>
       </Col>
     </Row>
   </div>
