@@ -13,6 +13,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8"
   },
+  "homepage": "https://owidder.github.io/clickdummy/build",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
