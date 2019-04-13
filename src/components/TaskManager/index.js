@@ -36,6 +36,14 @@ export class TaskManager extends React.Component {
     this.setState({ selectedTasks: category });
   };
 
+  componentDidMount() {
+    const taskContainer = document.querySelector(".task-container.right");
+    const top = taskContainer.getBoundingClientRect().y;
+    const bottom = window.innerHeight;
+    const height = bottom - top;
+    taskContainer.style.height = `${height}px`;
+  }
+
   render() {
     return (
       <>
