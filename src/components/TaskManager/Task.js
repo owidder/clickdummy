@@ -32,10 +32,9 @@ export class Task extends React.Component {
       return (
         <Tooltip title="Unclaim task">
           <Icon
-            className="clickable"
+            className="clickable claimed"
             type="close-circle"
             theme="filled"
-            style={{ color: "red", fontSize: "20px" }}
             onClick={() => {
                 hideTask(this.props.id).then(() => this.props.onUnclaim(this.props.id));
             }}
@@ -46,10 +45,9 @@ export class Task extends React.Component {
     return (
       <Tooltip title="Claim task">
         <Icon
-          className="clickable"
+          className="clickable unclaimed"
           type="check-circle"
           theme="filled"
-          style={{ color: "green", fontSize: "20px" }}
           onClick={() => {
               hideTask(this.props.id).then(() => this.props.onClaim(this.props.id));
           }}
