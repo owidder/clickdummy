@@ -1,15 +1,15 @@
 {
-  "main.css": "/clickdummy/build/static/css/main.a2d8c294.chunk.css",
-  "main.js": "/clickdummy/build/static/js/main.28a46106.chunk.js",
-  "main.js.map": "/clickdummy/build/static/js/main.28a46106.chunk.js.map",
+  "main.css": "/clickdummy/build/static/css/main.8ca2cc0b.chunk.css",
+  "main.js": "/clickdummy/build/static/js/main.e283f1b6.chunk.js",
+  "main.js.map": "/clickdummy/build/static/js/main.e283f1b6.chunk.js.map",
   "runtime~main.js": "/clickdummy/build/static/js/runtime~main.438540f7.js",
   "runtime~main.js.map": "/clickdummy/build/static/js/runtime~main.438540f7.js.map",
   "static/css/2.4e3cc61f.chunk.css": "/clickdummy/build/static/css/2.4e3cc61f.chunk.css",
-  "static/js/2.bd483fda.chunk.js": "/clickdummy/build/static/js/2.bd483fda.chunk.js",
-  "static/js/2.bd483fda.chunk.js.map": "/clickdummy/build/static/js/2.bd483fda.chunk.js.map",
+  "static/js/2.01e0e341.chunk.js": "/clickdummy/build/static/js/2.01e0e341.chunk.js",
+  "static/js/2.01e0e341.chunk.js.map": "/clickdummy/build/static/js/2.01e0e341.chunk.js.map",
   "index.html": "/clickdummy/build/index.html",
-  "precache-manifest.be049f7be2c076f136f9871c227169e6.js": "/clickdummy/build/precache-manifest.be049f7be2c076f136f9871c227169e6.js",
+  "precache-manifest.76235610ddfef2b6e5e8aebe3f1fa231.js": "/clickdummy/build/precache-manifest.76235610ddfef2b6e5e8aebe3f1fa231.js",
   "service-worker.js": "/clickdummy/build/service-worker.js",
   "static/css/2.4e3cc61f.chunk.css.map": "/clickdummy/build/static/css/2.4e3cc61f.chunk.css.map",
-  "static/css/main.a2d8c294.chunk.css.map": "/clickdummy/build/static/css/main.a2d8c294.chunk.css.map"
+  "static/css/main.8ca2cc0b.chunk.css.map": "/clickdummy/build/static/css/main.8ca2cc0b.chunk.css.map"
 }
