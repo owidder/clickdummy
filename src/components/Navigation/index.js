@@ -1,6 +1,5 @@
 import React from "react";
 import { Icon, Row, Col } from "antd";
-import logo from "./logo.png";
 import "./Navigation.scss";
 
 const menuButton = {
