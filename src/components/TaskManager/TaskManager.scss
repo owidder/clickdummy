@@ -2,8 +2,17 @@
 
 .task-container {
     &.no-tasks {
-        border-right: 1px solid $bmw-gray;
+        // border-right: 1px solid $bmw-gray;
     }
+}
+
+@keyframes category-get-active {
+    0% {background-color: $bmw-gray;color: white;}
+    100% {background-color: $bmw-blue; color: white;}
+}
+
+@keyframes category-get-hover {
+    100% {background-color: $bmw-gray;color: white;}
 }
 
 .task-category {
@@ -14,19 +23,18 @@
     align-items: center;
     cursor: pointer;
     padding-top: 5px;
-    // border-right: 1px solid $bmw-gray;
     margin: 5px;
-
-
-    .description {
-        color: white;
-        font-weight: bold;
-    }
+    padding: 5px;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.65);
+    width: 100%;
+    font-weight: bold;
+    border-radius: 10px;
 
     &:hover {
-        background-color: $bmw-gray;
-        color: $bmw-blue;
-        fill: $bmw-blue;
+        animation-name: category-get-hover;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
     }
 
     &.empty {
@@ -35,9 +43,9 @@
     }
 
     &.active {
-        background-color: whitesmoke;
-        // border-left: 5px solid $bmw-gray;
-        // margin-left: -5px;
+        animation-name: category-get-active;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
     }
 }
 

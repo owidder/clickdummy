@@ -41,7 +41,7 @@ export class TaskManager extends React.Component {
       <>
         <h1>Tasks</h1>
         <Row>
-          <Col span={5}>
+          <Col span={6}>
             <div
               className={`task-container ${
                 this.getCurrentTaskList().length > 0 ? "" : "no-tasks"
@@ -67,8 +67,9 @@ export class TaskManager extends React.Component {
               />
             </div>
           </Col>
+          <Col span={1}></Col>
           {this.tasksAvailable() ? (
-            <Col span={8}>
+            <Col span={12}>
               <div className="task-container right">
                 <TaskList
                   selectedTasks={this.getCurrentTaskList()}
