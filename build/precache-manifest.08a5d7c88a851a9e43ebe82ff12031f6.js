@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/clickdummy/build/static/js/runtime~main.438540f7.js"
   },
   {
-    "revision": "06071314584249dd3565",
-    "url": "/clickdummy/build/static/js/main.2f9904cf.chunk.js"
+    "revision": "c5843fd094cbb327c689",
+    "url": "/clickdummy/build/static/js/main.62c683ab.chunk.js"
   },
   {
     "revision": "d8f368051f20169bf6e5",
     "url": "/clickdummy/build/static/js/2.2b49efe7.chunk.js"
   },
   {
-    "revision": "06071314584249dd3565",
+    "revision": "c5843fd094cbb327c689",
     "url": "/clickdummy/build/static/css/main.c5a5f055.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/clickdummy/build/static/css/2.4e3cc61f.chunk.css"
   },
   {
-    "revision": "cf4d0c724f34ee6030e5142b901a871d",
+    "revision": "52b1219861ef0962294ef1d78d752045",
     "url": "/clickdummy/build/index.html"
   }
 ];
